@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,9 +26,9 @@ public class XMLToCSVConverterMain {
         // TODO code application logic here
         XMLReader xml = new XMLReader(inputFilePath, extractionElement);
         ArrayList<String> xmlArr = new ArrayList(xml.getXmlArrayList());
-        
+        int i = 0;
         for (String element : xmlArr){
-            System.out.println(element);
+            System.out.print("["+element+"]");
         }
     }
     
