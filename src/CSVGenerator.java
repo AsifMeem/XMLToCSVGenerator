@@ -1,7 +1,6 @@
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,13 +23,15 @@ public class CSVGenerator {
      * @param inputString input string that contains all the data for 
      *                       the CSV
      * @param fileName The name that the file will be stored as
+     * @param outputFilePath The path where the processed CSV files
+     *  are to be stored
      */
-    public CSVGenerator(String inputString, String fileName) {
+    public CSVGenerator(String inputString, String fileName, String outputFilePath) {
         
         processString = inputString;
         setProcessed(false);
         this.fileName = fileName;
-        this.pathString = "C:\\Users\\User\\Documents\\NetBeansProjects\\Processed\\";
+        this.pathString = outputFilePath ;
         
     }
     

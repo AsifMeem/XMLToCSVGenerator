@@ -1,12 +1,16 @@
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /*
  * Class for taking XML file as input and parsing into Array based on the
@@ -73,8 +77,9 @@ public class XMLReader {
             xmlArrayList = cleanData(xmlArrayList);
             setProcessed(true);
             
-        } catch (Exception e) {
+        } catch (ParserConfigurationException | SAXException | IOException | DOMException e) {
             System.err.println("Could not generate XML: " + e);
+            System.exit(1);
         } 
     }
     

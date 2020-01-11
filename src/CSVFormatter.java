@@ -2,9 +2,7 @@
 import java.util.ArrayList;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Formats ArrayList according to CSV file generation
  */
 
 /**
@@ -14,14 +12,14 @@ import java.util.ArrayList;
 public class CSVFormatter {
     
     private final ArrayList<String> inputArrayList;
-    private String header, footer, fileName;
-    private ArrayList<String> csvOutputArrayList, fileNameArrayList;
+    private String header, footer;
+    private final ArrayList<String> csvOutputArrayList, fileNameArrayList;
     private StringBuilder dataString;
     private int deleteIndexCount;
    
     /**
      *
-     * @param inputArrayList
+     * @param inputArrayList input arraylist that is to be processed
      */
     public CSVFormatter(ArrayList inputArrayList) {
         this.inputArrayList = inputArrayList;
@@ -34,7 +32,7 @@ public class CSVFormatter {
     
     /**
      *
-     * @return
+     * @return This is the processed Arraylist ready for csv generation
      */
     public ArrayList<String> getCSVArrayList(){
         
@@ -51,7 +49,8 @@ public class CSVFormatter {
     
     /**
      *
-     * @return
+     * @return This is the Arraylist containing the name of all the csv files 
+     * that are to be generated
      */
     public ArrayList<String> getFileName(){
         
@@ -59,7 +58,10 @@ public class CSVFormatter {
         return this.fileNameArrayList;
     }
     
-    
+    /**
+     * 
+     * @param index for outlining how many elements to delete from input array 
+     */
     private void shrinkInputArray (int index){
         
         for (int i = 0; i < index; i++){
@@ -67,17 +69,26 @@ public class CSVFormatter {
         }
     }
     
+    /**
+     *  Sets the header for the csv file
+     */
     private void setHeader(){
         this.header = inputArrayList.get(0);
         this.inputArrayList.remove(0);
     }
     
+    /**
+     * Sets the footer for the csv file
+     */
     private void setFooter(){
         int lastIndex = inputArrayList.size() - 1;
         this.footer = inputArrayList.get(lastIndex);
         this.inputArrayList.remove(lastIndex);
     }
     
+    /**
+     * Builds the csv file as a string according to requirements
+     */
     private void setDataString(){
         this.dataString = new StringBuilder();
         this.dataString.append(getHeader());
@@ -112,7 +123,7 @@ public class CSVFormatter {
     
     /**
      *
-     * @return
+     * @return This is the header of the csv file
      */
     public String getHeader(){
         return this.header;
@@ -120,7 +131,7 @@ public class CSVFormatter {
     
     /**
      *
-     * @return
+     * @return This is the footer of the csv file
      */
     public String getFooter(){
         return this.footer;
