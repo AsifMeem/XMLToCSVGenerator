@@ -15,19 +15,19 @@ import java.util.ArrayList;
  */
 public class CSVGenerator {
     
-    private final ArrayList<String> processStringArr;
+    private final String processString;
     private boolean processed;
     private final String pathString, fileName;
 
     /**
      * Initializes CSVGenerator object 
-     * @param inputArrayList input array that contains all the data for 
+     * @param inputString input string that contains all the data for 
      *                       the CSV
      * @param fileName The name that the file will be stored as
      */
-    public CSVGenerator(ArrayList inputArrayList, String fileName) {
+    public CSVGenerator(String inputString, String fileName) {
         
-        processStringArr = new ArrayList<>(inputArrayList);
+        processString = inputString;
         setProcessed(false);
         this.fileName = fileName;
         this.pathString = "C:\\Users\\User\\Documents\\NetBeansProjects\\Processed\\";
@@ -42,12 +42,8 @@ public class CSVGenerator {
         try{
             PrintWriter printWriter = new PrintWriter(new File(getPathString()+ getFileName()+".csv"));
             
-            StringBuilder stringBuilder = new StringBuilder();
-            for (String processString : processStringArr) {
-                stringBuilder.append(processString);
-            }
             
-            printWriter.write(stringBuilder.toString());
+            printWriter.write(processString);
             printWriter.close();
             setProcessed(true);
             
@@ -92,8 +88,8 @@ public class CSVGenerator {
      * @return This is the String of Arrays that was passed as 
      *  constructor parameters
      */
-    public ArrayList getProcessString() {
-        return processStringArr;
+    public String getProcessString() {
+        return processString;
     }
     
 }

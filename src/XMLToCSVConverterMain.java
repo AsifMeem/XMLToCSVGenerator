@@ -21,15 +21,27 @@ public class XMLToCSVConverterMain {
     private final static String outputFilePath = "C:\\Users\\User\\Documents\\NetBeansProjects\\Processed\\";
     private final static String extractionElement = "CSVIntervalData";
     
-    
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         // TODO code application logic here
         XMLReader xml = new XMLReader(inputFilePath, extractionElement);
         ArrayList<String> xmlArr = new ArrayList(xml.getXmlArrayList());
-        int i = 0;
-        for (String element : xmlArr){
-            System.out.print("["+element+"]");
+        CSVFormatter csv = new CSVFormatter(xmlArr);
+        ArrayList<String> csvArr = new ArrayList<>(csv.getCSVArrayList());
+        ArrayList<String> fileNameArr = new ArrayList<>(csv.getFileName());
+        int fileNameIndex = 0;
+        for(String element: csvArr){
+            
+            CSVGenerator csvGen = new CSVGenerator(element,fileNameArr.get(fileNameIndex));
+            csvGen.generateCSV();
+            fileNameIndex++ ;
         }
+        
     }
+    
+    
     
 }
