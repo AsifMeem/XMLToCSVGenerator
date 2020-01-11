@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 public class CSVGeneratorTest {
     
     
-    ArrayList test = new ArrayList();
+    StringBuilder test = new StringBuilder();
     CSVGenerator csv;
     
     public CSVGeneratorTest() {
@@ -30,25 +30,25 @@ public class CSVGeneratorTest {
     
     @Before
     public void setUp() {
-        test.add("sl_no");
-        test.add(",");
-        test.add("book name");
-        test.add(",");
-        test.add("category");
-        test.add("\r\n");
-        test.add("1");
-        test.add(",");
-        test.add("book name 1");
-        test.add(",");
-        test.add("category 1");
-        test.add("\r\n");
-        test.add("2");
-        test.add(",");
-        test.add("book name 2");
-        test.add(",");
-        test.add("category 2");
-        test.add("\r\n");
-        csv = new CSVGenerator(test, "test2");
+        test.append("sl_no");
+        test.append(",");
+        test.append("book name");
+        test.append(",");
+        test.append("category");
+        test.append("\r\n");
+        test.append("1");
+        test.append(",");
+        test.append("book name 1");
+        test.append(",");
+        test.append("category 1");
+        test.append("\r\n");
+        test.append("2");
+        test.append(",");
+        test.append("book name 2");
+        test.append(",");
+        test.append("category 2");
+        test.append("\r\n");
+        csv = new CSVGenerator(test.toString(), "test2", "C:\\Users\\User\\Documents\\NetBeansProjects\\Processed\\");
         
     }
 
@@ -109,8 +109,8 @@ public class CSVGeneratorTest {
     public void testGetProcessString() {
         setUp();
         CSVGenerator instance = csv;
-        ArrayList expResult = test;
-        ArrayList result = instance.getProcessString();
+        String expResult = test.toString();
+        String result = instance.getProcessString();
         assertEquals(expResult, result);
     }
     

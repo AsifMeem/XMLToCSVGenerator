@@ -82,7 +82,11 @@ public class XMLReader {
             System.exit(1);
         } 
     }
-    
+    /**
+     * 
+     * @param inputArrayList arraylist to be stripped of tabs, spaces and new lines
+     * @return this is the clean arraylist stripped of tabs, spaces and new lines
+     */
     private ArrayList cleanData(ArrayList<String> inputArrayList){
         ArrayList<String> formattedArrayList = new ArrayList<>();
         

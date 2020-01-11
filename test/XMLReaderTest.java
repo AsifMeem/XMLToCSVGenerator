@@ -54,18 +54,6 @@ public class XMLReaderTest {
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of getXmlArrayList method, of class XMLReader.
-     */
-    @Test
-    public void testGetXmlArrayList() {
-        System.out.println("getXmlArrayList");
-        XMLReader instance = null;
-        ArrayList expResult = null;
-        ArrayList result = instance.getXmlArrayList();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+   
     
 }
